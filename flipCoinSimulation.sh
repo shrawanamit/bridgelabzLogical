@@ -14,6 +14,7 @@ function flipCoin(){
 #usecase 2 multipal time storing the coin store in a dictionary
 
 declare -A singlets
+declare -A  winingCombination
 isHead="HEAD"
 read -p "Enter number of times to flip the coin " n;
 for (( i=0;i<n;i++ ))
@@ -32,7 +33,8 @@ echo ${singlets[@]};
 echo "Percentage of Singlets";
 echo "Percentage of Heads:= $((heads*100/n))";
 echo "Percentage of Tails:= $((tails*100/n))";
-
+winingCombination[H]=$((heads*100/n))
+winingCombination[T]=$((tails*100/n))
 #usecase 3 create doubleat combination
 
 declare -A doublets
@@ -63,6 +65,10 @@ echo "Percentage of HH = $((hh*100/n))";
 echo "Percentage of TT = $((tt*100/n))";
 echo "Percentage of HT = $((ht*100/n))";
 echo "Percentage of TH = $((th*100/n))";
+winingCombination[HH]=$((hh*100/n));
+winingCombination[TT]=$((tt*100/n));
+winingCombination[HT]=$((ht*100/n));
+winingCombination[TH]=$((th*100/n));
 
 #Usecase 4 store Triplets in a dictionary
 
@@ -116,4 +122,12 @@ echo "Percentage of HHT= $((hht*100/n))";
 echo "Percentage of TTT= $((ttt*100/n))";
 echo "Percentage of HTT= $((htt*100/n))";
 echo "Percentage of THT= $((tht*100/n))";
-
+winingCombination[HHH]=$((hhh*100/n))
+winingCombination[TTH]=$((tth*100/n))
+winingCombination[HTH]=$((hth*100/n))
+winingCombination[THH]=$((thh*100/n))
+winingCombination[HHT]=$((hht*100/n))
+winingCombination[TTT]=$((ttt*100/n))
+winingCombination[HTT]=$((htt*100/n))
+winingCombination[THT]=$((tht*100/n))
+echo ${winingCombination[@]}
